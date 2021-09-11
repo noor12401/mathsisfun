@@ -1,13 +1,12 @@
 from pywebio.input import *
 from pywebio.output import *
 from pywebio import start_server
-#from pywebio.exceptions import SessionClosedException
-import pickle
 import warnings
 import argparse
 import time
 
 warnings.filterwarnings("ignore")
+
 
 def prove_numbers():
     solution_1 = "Let's take an equation \n" \
@@ -34,7 +33,15 @@ def prove_numbers():
                  "2 = {} \n" \
                  "Since (1 = 2) & (2 = {}), so we get \n" \
                  "1 = {} ---------- ({})"
-    put_text("Hey folks, Mathematically you can prove 1 to be equal to any number! \n"
+    put_html('<center><h2 style="font-family:Arial"><head><style>#spin {color:red;}#spin:after {content:"";animation: spin 12s linear infinite;}'
+             '@keyframes spin {0% { content:"2";}10% { content:"5";}20% { content:"9";}30% { content:"32";}'
+             '40% { content:"53";}50% { content: "77"; }60% { content: "108"; }70% { content: "150"; }'
+             '80% { content: "and the list goes on..."; }90% { content: "and the list goes on..."; }'
+             '91% { content: "and the list goes on..."; }95% { content: "and the list goes on..."; }'
+             '100% { content: "and the list goes on..."; }}</style></head><body>Proving 1 = <span id="spin">'
+             '</span></body><br>Created by <a href="https://www.linkedin.com/in/nooruddin-shaikh/">Nooruddin Shaikh</a>'
+             '<br>Source code: <a href="https://github.com/noor12401/mathsisfun">GitHub</a></h2></center>')
+    put_info("Hey folks, Mathematically you can prove 1 to be equal to any number! \n"
              "Type any smaller number first to understand the mathematical twist!")
     user = int(input("Enter any number", placeholder='I want to prove 1 ='))
     put_text('Proving 1 = {}. Please wait.....'.format(user))
